@@ -14,7 +14,7 @@
    pip install -e .
    ```
 
-4. To test the package have been installed correctly, you may run the following commands with the python
+4. To test that the package have been installed correctly, you may run the following commands with the python
 
    ```python
    from stem import print_hello_world
