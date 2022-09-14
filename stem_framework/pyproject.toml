@@ -1,0 +1,12 @@
+[project]
+name = "stem"
+description = "stem package"
+version = "0.0.1"
+
+authors = [
+    {name = "Timofey Miryashkin", email = "miryashkin.tn@phystech.edu" }
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

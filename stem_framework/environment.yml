@@ -1,0 +1,10 @@
+name: stem-1
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - mypy
+  - sphinx
+  - pylint
+  - python=3.9
+prefix: /home/timofey/UsefulTools/miniconda3/envs/stem-1
