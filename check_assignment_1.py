@@ -21,12 +21,12 @@ def main():
         assert (path / "stem" / "__init__.py").exists()
 
     stem = stem_framework / "stem"
-    
+
     for name in ["core.py", "meta.py", "task.py", "workspace.py"]:
         loader = SourceFileLoader(name[:-3], str(stem/name))
         module = loader.load_module()
         print("\n", module.__doc__, "\n")
-    
+
     os.chdir(stem_framework)
 
     commands = [
