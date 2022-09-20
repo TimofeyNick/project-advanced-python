@@ -1,12 +1,13 @@
 from dataclasses import dataclass
+from .core import Dataclass
 from typing import Optional, Any, Union
 
+# dicts and Dataclass type are valid types
+Meta = Union[dict, Dataclass]
 
-Meta = ... # TODO()
+SpecificationField = dict[Meta, Union[Any, tuple[Any, ...]], dict[Meta, Union[Any, tuple[Any, ...]]]]
 
-SpecificationField = ... # TODO()
-
-Specification = ... # TODO()
+Specification = Union[Dataclass, tuple[SpecificationField, ...]]
 
 
 class SpecificationError(Exception):
@@ -25,19 +26,28 @@ class MetaVerification:
 
     def __init__(self, *errors: Union[MetaFieldError, "MetaVerification"]):
         self.error = errors
-        # TODO("checked_success")
+        self.checked_success: bool = False
 
     @staticmethod
     def verify(meta: Meta,
                specification: Optional[Specification] = None) -> "MetaVerification":
-        ...  # TODO()
+        if specification == None:
+            raise SpecificationError
+        meta_keys = meta.__dict__.keys()
+        if isinstance(specification, tuple):
+            print('Turple')
+        else:
+            print('Meta type')
+        #TODO: create the comparasion method
+
 
 
 def get_meta_attr(meta : Meta, key : str, default : Optional[Any] = None) -> Optional[Any]:
-    ...
-    # TODO()
+    if hasattr(meta, key):
+        return getattr(meta, key)
+    return default
 
 
 def update_meta(meta: Meta, **kwargs):
-    ...
-    # TODO()
+    for key in kwargs:
+        setattr(meta, key, kwargs[key])

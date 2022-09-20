@@ -1,4 +1,5 @@
 import dataclasses
+import unittest
 from unittest import TestCase
 
 from stem.meta import MetaVerification, update_meta, get_meta_attr
@@ -44,3 +45,6 @@ class CoreTest(TestCase):
 
         verification = MetaVerification.verify(example_dict, specification)
         self.assertFalse(verification.checked_success)
+
+if __name__ == '__main__':
+    unittest.main()
