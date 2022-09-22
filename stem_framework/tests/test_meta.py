@@ -30,7 +30,6 @@ class CoreTest(TestCase):
     def test_verify(self):
         example = Example()
         example_dict = dataclasses.asdict(example)
-
         specification = (("a", int), ("b", (int, float)))
 
         verification = MetaVerification.verify(example, specification)

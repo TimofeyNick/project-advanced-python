@@ -1,5 +1,5 @@
+import unittest
 from unittest import TestCase
-
 from stem.core import pascal_case_to_snake_case, Named
 
 
@@ -20,3 +20,6 @@ class CoreTest(TestCase):
             _name = "rose"
 
         self.assertEqual(MyTask().name, "rose")
+
+if __name__ == '__main__':
+    unittest.main()
